@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1f1f1f;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.blue {
+  height: 50%;
+  position: fixed;
+  background: #0a146e;
+  content: '';
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  background-color: #ffffff;
+  box-shadow: rgba(35, 55, 80, 0.3) 0px 6px 12px;
+  padding: 25px 100px;
+  position: absolute;
+  width: auto;
+  height: 240px;
+}
+
+.flex {
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-radius: 8px;
+  gap: 10px;
+}
+
+.flex input {
+  padding: 8px 0;
+  color: rgb(20, 30, 55);
+  width: 200px;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+}
+.flex select {
+  border: 1px solid rgb(221, 221, 221);
+  box-shadow: rgba(0, 17, 51, 0.05) 0px 3px 15px;
+  padding: 8px;
+  color: rgb(20, 30, 55);
+  background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+  width: 200px;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.flex input:focus,
+.flex select:focus {
+  border: none;
+  outline: none;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.border {
+  border: 1px solid rgb(0, 113, 235) !important;
+}
+.flex > div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.flex .label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.main .result {
+  margin-top: 15px;
+}
+
+.main .result .is-equal {
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(46, 60, 87);
+  margin-bottom: 15px;
+}
+
+.main .result .is-equal span {
+  color: #a1a6b0;
+}
+
+.desc {
+  bottom: 10px;
+  right: 10px;
+  position: absolute;
+  font-size: 12px;
+}
+
+.flex-me {
+  display: flex;
+  border: 1px solid rgb(221, 221, 221);
+  box-shadow: rgba(0, 17, 51, 0.05) 0px 3px 15px;
+  color: rgb(20, 30, 55);
+  background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+}
+
+.flex-me .input-symbol {
+  padding: 9px 0;
+  margin-right: 4px;
+}
+
+.currency-flag {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.currency-list-item,
+.dropdown-button,
+.rate-1,
+.rate-2 {
+  color: #5c6664;
+}
+
+.currency-list-item span,
+dropdown-button span {
+  color: #1f1f1f;
+}
+
+.currency-list-item.active {
+  background-color: rgba(0, 212, 255, 1);
+}
+
+/* DROPDOWN */
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-button {
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  box-shadow: rgba(0, 17, 51, 0.05) 0px 3px 15px;
+  padding: 12px;
+  color: rgb(20, 30, 55);
+  background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;
+  width: 300px;
+  padding: 8px;
+  border-radius: 0px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.triangle {
+  font-size: 50%;
+  position: absolute;
+  right: 10px;
+  top: -2px;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 5px;
+  color: rgb(20, 30, 55);
+}
+.dropdown ul.active {
+  visibility: visible;
+  transition: all 0.3s ease;
+  transform: scaleY(1);
+  color: #333;
+}
+.dropdown ul {
+  visibility: hidden;
+  overflow: hidden;
+  color: #fff;
+  transform-origin: top;
+  padding: 0;
+  list-style: none;
+  transform: scaleY(0);
+  box-shadow: 0px 2px 6px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 0;
+  margin-top: 2px;
+  top: 100%;
+  min-width: 100%;
+  transition: all 0.3s ease;
+  height: 300px;
+  overflow-y: scroll;
+}
+.dropdown li {
+  background: #fff;
+  padding: 8px 10px 8px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: relative;
+  font-size: 14px;
+}
+.dropdown li.check {
+  background: #f6f6f6;
+}
+.dropdown li.check:after {
+  content: '';
+  position: absolute;
+  height: 15px;
+  width: 3px;
+  background: #ccc;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  transform: rotate(40deg);
+  margin-bottom: auto;
+  right: 15px;
+}
+.dropdown li.check:before {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 9px;
+  background: #ccc;
+  top: 6px;
+  bottom: 0;
+  margin-top: auto;
+  transform: rotate(40deg);
+  margin-bottom: auto;
+  right: 19px;
+}
+.dropdown li:hover {
+  background: #f6f6f6;
+  transition: background 0.2s ease;
+}
+
+/* STRIPED BACKGROUND */
+#stripes {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transform-origin: 0;
+  transform: skewY(-12deg);
+  background: rgb(9, 56, 121);
+  background: linear-gradient(325deg, rgba(9, 56, 121, 1) 31%, rgba(8, 81, 142, 1) 42%, rgba(0, 212, 255, 1) 100%);
+}
+
+#stripes,
+#stripes span {
+  position: absolute;
+}
+
+#stripes span {
+  height: 40px;
+}
+
+#stripes :nth-child(1) {
+  width: 50%;
+  left: 50%;
+  top: 40px;
+  background: #4c29ff;
+}
+
+#stripes :nth-child(2) {
+  width: 14%;
+  right: 0;
+  bottom: 40px;
+  background: #2be7ff;
+}
+
+#stripes :nth-child(3) {
+  width: 25%;
+  bottom: 0;
+  right: 0;
+  background: #a1ffc8;
+}
+
+@media (min-width: 670px) {
+  #stripes span {
+    height: 150px;
+  }
+  #stripes :nth-child(1) {
+    top: 0;
+  }
+  #stripes :nth-child(2) {
+    width: 16.66667%;
+    top: 300px;
+    bottom: auto;
+    background: #0dcfff;
+  }
+  #stripes :nth-child(3) {
+    width: 33.33333%;
+    right: auto;
+    background: #11bdff;
+  }
+}
+
+@media (min-width: 880px) {
+  #stripes span {
+    height: 190px;
+  }
+
+  #stripes :nth-child(1) {
+    width: 33.33333%;
+    left: -16.66666%;
+    background: #53f;
+  }
+
+  #stripes :nth-child(2) {
+    width: 33.33333%;
+    top: 0;
+    left: 16.66666%;
+    right: auto;
+    background: #4553ff;
+  }
+
+  #stripes :nth-child(3) {
+    width: 33.33333%;
+    left: 49.99999%;
+    bottom: auto;
+    background: #4f40ff;
+  }
+
+  #stripes :nth-child(4) {
+    width: 33.33333%;
+    top: 380px;
+    right: -16.66666%;
+    background: #25ddf5;
+  }
+
+  #stripes :nth-child(5) {
+    width: 33.33333%;
+    bottom: 0;
+    background: #1fa2ff;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main {
+    height: auto;
+  }
+  .flex {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .flex input {
+    width: 100%;
+  }
+  .dropdown ul {
+    z-index: 999;
+  }
+  .result {
+    margin: 30px 0;
+  }
+  .desc {
+    position: relative;
+    right: 0;
+  }
+}

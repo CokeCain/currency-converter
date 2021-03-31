@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="module" defer src="js/control.js"></script>
+    <title>CB Currency Converter</title>
+</head>
+
+<body>
+    <div id="stripes"> <span></span> <span></span> <span></span> <span></span> <span></span> </div>
+    <div class="main">
+        <div class="flex">
+            <div class="row-1">
+                <p class="label">Amount</p>
+                <div class="flex-me">
+                    <p class="input-symbol"></p> <input type="text" class="input-amount" placeholder="Amount" value="1">
+                </div>
+            </div>
+            <div class="row-2">
+                <p class="label">From</p>
+                <div class="dropdown" id="from-dropdown">
+                    <div class="button-from dropdown-button">Please Select</div> <span class="triangle">&#9660;</span>
+                    <ul class="currency-from dropdown-selection"></ul>
+                </div>
+            </div>
+            <div class="row-3">
+                <p class="label">To</p>
+                <div class="dropdown" id="to-dropdown">
+                    <div class="button-to dropdown-button">Please Select</div> <span class="triangle">&#9660;</span>
+                    <ul class="currency-to dropdown-selection"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="result"></div>
+        <div class="desc">This app is using <a href="https://exchangeratesapi.io/">exchangeratesapi.io</a> API and Euro
+            as a base for conversion. Made by <a href="mailto:cbabic.st@gmail.com">cbabic</a> in 2021.</div>
+    </div>
+</body>
+
+</html>
