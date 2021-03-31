@@ -37,6 +37,7 @@ body {
   position: absolute;
   width: auto;
   height: 240px;
+  margin-top: 20px;
 }
 
 .flex {
@@ -46,6 +47,19 @@ body {
   justify-content: space-evenly;
   border-radius: 8px;
   gap: 10px;
+}
+
+.title-subtitle {
+  color: #ffffff;
+  position: absolute;
+  top: 20%;
+  z-index: 999;
+  text-align: center;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 30px;
 }
 
 .flex input {
@@ -90,7 +104,7 @@ body {
 }
 
 .flex .label {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -249,106 +263,18 @@ dropdown-button span {
   background: #f6f6f6;
   transition: background 0.2s ease;
 }
-
-/* STRIPED BACKGROUND */
-#stripes {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transform-origin: 0;
-  transform: skewY(-12deg);
-  background: rgb(9, 56, 121);
-  background: linear-gradient(325deg, rgba(9, 56, 121, 1) 31%, rgba(8, 81, 142, 1) 42%, rgba(0, 212, 255, 1) 100%);
-}
-
-#stripes,
-#stripes span {
+.stripe {
+  background: rgb(25, 79, 153);
+  background: -moz-linear-gradient(0deg, rgba(25, 79, 153, 1) 33%, rgba(5, 54, 94, 1) 74%);
+  background: -webkit-linear-gradient(0deg, rgba(25, 79, 153, 1) 33%, rgba(5, 54, 94, 1) 74%);
+  background: linear-gradient(0deg, rgba(25, 79, 153, 1) 33%, rgba(5, 54, 94, 1) 74%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#194f99",endColorstr="#05365e",GradientType=1);
   position: absolute;
-}
-
-#stripes span {
-  height: 40px;
-}
-
-#stripes :nth-child(1) {
-  width: 50%;
-  left: 50%;
-  top: 40px;
-  background: #4c29ff;
-}
-
-#stripes :nth-child(2) {
-  width: 14%;
-  right: 0;
-  bottom: 40px;
-  background: #2be7ff;
-}
-
-#stripes :nth-child(3) {
-  width: 25%;
-  bottom: 0;
-  right: 0;
-  background: #a1ffc8;
-}
-
-@media (min-width: 670px) {
-  #stripes span {
-    height: 150px;
-  }
-  #stripes :nth-child(1) {
-    top: 0;
-  }
-  #stripes :nth-child(2) {
-    width: 16.66667%;
-    top: 300px;
-    bottom: auto;
-    background: #0dcfff;
-  }
-  #stripes :nth-child(3) {
-    width: 33.33333%;
-    right: auto;
-    background: #11bdff;
-  }
-}
-
-@media (min-width: 880px) {
-  #stripes span {
-    height: 190px;
-  }
-
-  #stripes :nth-child(1) {
-    width: 33.33333%;
-    left: -16.66666%;
-    background: #53f;
-  }
-
-  #stripes :nth-child(2) {
-    width: 33.33333%;
-    top: 0;
-    left: 16.66666%;
-    right: auto;
-    background: #4553ff;
-  }
-
-  #stripes :nth-child(3) {
-    width: 33.33333%;
-    left: 49.99999%;
-    bottom: auto;
-    background: #4f40ff;
-  }
-
-  #stripes :nth-child(4) {
-    width: 33.33333%;
-    top: 380px;
-    right: -16.66666%;
-    background: #25ddf5;
-  }
-
-  #stripes :nth-child(5) {
-    width: 33.33333%;
-    bottom: 0;
-    background: #1fa2ff;
-  }
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 50%;
 }
 
 @media only screen and (max-width: 768px) {
