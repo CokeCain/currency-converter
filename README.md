@@ -1,3 +1,3 @@
-#Currency Converter
+Currency Converter
 
-Currency Converter made in JavaScript. API, MVC, async/await
+Currency converter made with JavaScript using API, JSON, async/await, MVC
