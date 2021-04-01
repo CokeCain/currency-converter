@@ -301,11 +301,15 @@ dropdown-button span {
     margin: 30px 0;
   }
   .desc {
-    position: relative;
+    margin: 30px;
+    position: absolute;
     right: 0;
   }
 
   .title-subtitle {
     margin: 30px;
+  }
+  .flex-with-result {
+    box-shadow: none;
   }
 }
