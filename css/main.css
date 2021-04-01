@@ -302,7 +302,7 @@ dropdown-button span {
   }
   .desc {
     margin: 30px;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 0;
   }
