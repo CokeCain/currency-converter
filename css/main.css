@@ -61,6 +61,7 @@ body {
 .title {
   font-weight: 500;
   font-size: 30px;
+  text-transform: uppercase;
 }
 
 .flex input {
@@ -282,6 +283,8 @@ dropdown-button span {
 @media only screen and (max-width: 768px) {
   .main {
     height: auto;
+    margin: 0;
+    gap: 0;
   }
   .flex {
     flex-direction: column;
@@ -303,6 +306,6 @@ dropdown-button span {
   }
 
   .title-subtitle {
-    top: 10%;
+    margin: 30px;
   }
 }
