@@ -13,37 +13,43 @@
 </head>
 
 <body>
-    <div class="title-subtitle">
-        <p class="title">Currency Converter</p>
-        <p class="subtitle">Currency converter made with JavaScript using API, JSON, async/await, MVC</p>
-    </div>
+
 
     <div class="stripe"></div>
 
     <div class="main">
-        <div class="flex">
-            <div class="row-1">
-                <p class="label">Amount</p>
-                <div class="flex-me">
-                    <p class="input-symbol"></p> <input type="text" class="input-amount" placeholder="Amount" value="1">
-                </div>
-            </div>
-            <div class="row-2">
-                <p class="label">From</p>
-                <div class="dropdown" id="from-dropdown">
-                    <div class="button-from dropdown-button">Please Select</div> <span class="triangle">&#9660;</span>
-                    <ul class="currency-from dropdown-selection"></ul>
-                </div>
-            </div>
-            <div class="row-3">
-                <p class="label">To</p>
-                <div class="dropdown" id="to-dropdown">
-                    <div class="button-to dropdown-button">Please Select</div> <span class="triangle">&#9660;</span>
-                    <ul class="currency-to dropdown-selection"></ul>
-                </div>
-            </div>
+        <div class="title-subtitle">
+            <p class="title">Currency Converter</p>
+            <p class="subtitle">Currency converter made with JavaScript using API, JSON, async/await, MVC</p>
         </div>
-        <div class="result"></div>
+        <div class="flex-with-result">
+            <div class="flex">
+                <div class="row-1">
+                    <p class="label">Amount</p>
+                    <div class="flex-me">
+                        <p class="input-symbol"></p> <input type="text" class="input-amount" placeholder="Amount"
+                            value="1">
+                    </div>
+                </div>
+                <div class="row-2">
+                    <p class="label">From</p>
+                    <div class="dropdown" id="from-dropdown">
+                        <div class="button-from dropdown-button">Please Select</div> <span
+                            class="triangle">&#9660;</span>
+                        <ul class="currency-from dropdown-selection"></ul>
+                    </div>
+                </div>
+                <div class="row-3">
+                    <p class="label">To</p>
+                    <div class="dropdown" id="to-dropdown">
+                        <div class="button-to dropdown-button">Please Select</div> <span class="triangle">&#9660;</span>
+                        <ul class="currency-to dropdown-selection"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result"></div>
+        </div>
         <div class="desc">This app is using <a href="https://exchangeratesapi.io/">exchangeratesapi.io</a> API and Euro
             as a base for conversion. Made by <a href="mailto:cbabic.st@gmail.com">cbabic</a> in 2021.</div>
     </div>
