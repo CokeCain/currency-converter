@@ -196,6 +196,7 @@ dropdown-button span {
   margin-bottom: auto;
   height: 5px;
   color: rgb(20, 30, 55);
+  z-index: -99;
 }
 .dropdown ul.active {
   visibility: visible;
