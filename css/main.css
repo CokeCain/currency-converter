@@ -41,6 +41,7 @@ body {
   padding: 60px;
   z-index: 10;
   border-radius: 8px;
+  position: relative;
 }
 
 .flex {
@@ -48,6 +49,8 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   gap: 10px;
+  position: relative;
+  z-index: 999;
 }
 
 .title-subtitle {
