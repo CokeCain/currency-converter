@@ -294,10 +294,18 @@ dropdown-button span {
   transition: 0.2s;
 }
 
+.switch svg {
+  color: #0c7cd5;
+}
+
 .switch:hover {
   background: #0c7cd5;
   color: #ffffff;
   border: 1px solid transparent;
+}
+
+.switch:hover svg {
+  color: #ffffff;
 }
 
 .switch:active {
