@@ -54,6 +54,7 @@ body {
 }
 
 .title-subtitle {
+  text-shadow: 1px 1px 3px #000000;
   color: #ffffff;
   /* position: absolute;
   top: 20%; */
@@ -133,6 +134,10 @@ body {
   right: 10px;
   position: absolute;
   font-size: 12px;
+}
+
+.desc a {
+  text-decoration: none;
 }
 
 .flex-me {
@@ -270,7 +275,7 @@ dropdown-button span {
   background: #f6f6f6;
   transition: background 0.2s ease;
 }
-.stripe {
+.stripe_old {
   background: rgb(25, 79, 153);
   background: -moz-linear-gradient(0deg, rgba(25, 79, 153, 1) 33%, rgba(5, 54, 94, 1) 74%);
   background: -webkit-linear-gradient(0deg, rgba(25, 79, 153, 1) 33%, rgba(5, 54, 94, 1) 74%);
@@ -282,6 +287,13 @@ dropdown-button span {
   content: '';
   width: 100%;
   height: 50%;
+}
+
+.stripe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .switch {
