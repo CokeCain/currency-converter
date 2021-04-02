@@ -335,6 +335,7 @@ dropdown-button span {
   }
   .switch {
     top: 0;
+    margin: 10px 0;
   }
   .title-subtitle {
     margin: 30px;
