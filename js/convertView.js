@@ -4,6 +4,9 @@ class ConvertView extends View {
   _parentElement = document.querySelector('.result');
   _zeroMessage = `Please enter an amount greater than 0`;
   _lettersMessage = `Please enter a valid amount`;
+
+  _activeFrom;
+  _activeTo;
   _generateMarkup() {
     return `
     <p class="from">${this._data.amount} ${this._data.nameFrom} =</p>
@@ -52,13 +55,39 @@ class ConvertView extends View {
       let numbers = /^[0-9]+$/;
       if (document.querySelector('.input-amount').value === '0') handler(0);
       if (document.querySelector('.input-amount').value.match(numbers)) {
-        if (document.querySelector('.button-from span') !== null && document.querySelector('.button-to span') !== null)
-          handler(
-            document.querySelector('.input-amount').value,
-            document.querySelector('.button-from span').dataset.value,
-            document.querySelector('.button-to span').dataset.value
-          );
+        if (document.querySelector('.button-from span') !== null && document.querySelector('.button-to span') !== null) handler();
       } else handler('letter');
+    });
+  }
+
+  addHandlerCallCalculate(handler) {
+    document.querySelector('.switch').addEventListener('click', function () {
+      document.querySelectorAll('.currency-from .currency-list-item').forEach((cur, i) => {
+        if (cur.classList.contains('active')) {
+          this._activeFrom = i;
+          cur.classList.remove('active');
+        } else return;
+      });
+      document.querySelectorAll('.currency-to .currency-list-item').forEach((cur, i) => {
+        if (cur.classList.contains('active')) {
+          this._activeTo = i;
+          cur.classList.remove('active');
+        } else return;
+      });
+      if (this._activeFrom !== undefined && this._activeTo !== undefined) {
+        document.querySelectorAll('.currency-from .currency-list-item')[this._activeTo].classList.add('active');
+        document.querySelector('.button-from.dropdown-button').innerHTML = document.querySelectorAll('.currency-from .currency-list-item')[
+          this._activeTo
+        ].innerHTML;
+        document.querySelectorAll('.currency-to .currency-list-item')[this._activeFrom].classList.add('active');
+        document.querySelector('.button-to.dropdown-button').innerHTML = document.querySelectorAll('.currency-to .currency-list-item')[
+          this._activeFrom
+        ].innerHTML;
+        handler();
+      } else {
+        console.log('undefined');
+        return;
+      }
     });
   }
 }
@@ -88,7 +117,8 @@ function showDropdown(e) {
   }
   if (e.target.tagName === 'LI') {
     activeDropdown.button.innerHTML = e.target.innerHTML;
-    [...e.target.parentNode.children].forEach(cur => cur.classList.remove('active'));
+    let children = [...e.target.parentNode.children];
+    children.forEach(cur => cur.classList.remove('active'));
     e.target.classList.add('active');
   }
   children.forEach(cur => {
@@ -101,23 +131,6 @@ function showDropdown(e) {
     }
   });
 }
-
-/* document.querySelector('.switch').addEventListener('click', function () {
-  let activeFrom, activeTo;
-  document.querySelectorAll('.currency-from .currency-list-item').forEach(cur => {
-    if (cur.classList.contains('active')) activeFrom = cur;
-    else return;
-  });
-  document.querySelectorAll('.currency-to .currency-list-item').forEach(cur => {
-    if (cur.classList.contains('active')) activeTo = cur;
-    else return;
-  });
-
-  document.querySelector('.dropdown-button.button-from').innerHTML = activeTo.innerHTML;
-  document.querySelector('.dropdown-button.button-to').innerHTML = activeFrom.innerHTML;
-
-  console.log(activeTo, activeFrom);
-}); */
 
 export default new ConvertView();
 

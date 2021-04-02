@@ -166,7 +166,8 @@ dropdown-button span {
 }
 
 .currency-list-item.active {
-  background-color: rgba(0, 212, 255, 1);
+  background-color: #0c7cd5;
+  color: white;
 }
 
 /* DROPDOWN */
@@ -283,6 +284,29 @@ dropdown-button span {
   height: 50%;
 }
 
+.switch {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  top: 24px;
+  background: #ffffff;
+  border: 1px solid rgb(221, 221, 221);
+  transition: 0.2s;
+}
+
+.switch:hover {
+  background: #0c7cd5;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.switch:active {
+  transform: translate(0, 3px);
+  -webkit-transform: translate(0, 3px);
+  box-shadow: rgba(35, 55, 80, 0.3) 0px 6px 12px;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
   .main {
     height: auto;
@@ -309,7 +333,9 @@ dropdown-button span {
     bottom: 0;
     right: 0;
   }
-
+  .switch {
+    top: 0;
+  }
   .title-subtitle {
     margin: 30px;
   }

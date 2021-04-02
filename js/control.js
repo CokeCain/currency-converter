@@ -19,7 +19,10 @@ const controller = async function () {
 };
 
 let index1, index2;
-const calculate = function (amount, from, to) {
+function calculate() {
+  let amount = document.querySelector('.input-amount').value;
+  let from = document.querySelector('.button-from span').dataset.value;
+  let to = document.querySelector('.button-to span').dataset.value;
   model.state.currency.forEach((cur, i) => {
     if (cur.code.includes(from)) index1 = i;
     if (cur.code.includes(to)) index2 = i;
@@ -46,11 +49,12 @@ const calculate = function (amount, from, to) {
   model.setResult(result);
   convertView.render(model.state.result);
   symbolView.render(model.state.result);
-};
+}
 
 const init = function () {
   controller();
   convertView.addHandlerGetRates(calculate);
+  convertView.addHandlerCallCalculate(calculate);
 };
 
 init();
