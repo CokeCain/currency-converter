@@ -275,7 +275,7 @@ dropdown-button span {
   background: #f6f6f6;
   transition: background 0.2s ease;
 }
-.stripe_old {
+.stripe {
   background: rgb(25, 79, 153);
   background: -moz-linear-gradient(0deg, rgba(25, 79, 153, 1) 33%, rgba(5, 54, 94, 1) 74%);
   background: -webkit-linear-gradient(0deg, rgba(25, 79, 153, 1) 33%, rgba(5, 54, 94, 1) 74%);
@@ -289,7 +289,7 @@ dropdown-button span {
   height: 50%;
 }
 
-.stripe {
+.stripe_old {
   position: absolute;
   top: 0;
   left: 0;
