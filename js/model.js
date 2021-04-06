@@ -12,7 +12,6 @@ export const getCurrencyCodes = async function () {
     const data = await fetch(`https://api.ratesapi.io/api/latest`);
     const json = await data.json();
     populateRates(json);
-    console.log(json);
   } catch (err) {
     console.log(err);
   }

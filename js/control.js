@@ -2,10 +2,9 @@ import * as model from './model.js';
 import fromView from './fromView.js';
 import toView from './toView.js';
 import convertView from './convertView.js';
-import symbolView from './symbolView.js';
 
-// import 'core-js/stable';
-// import 'regenerator-runtime/runtime';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 const controller = async function () {
   try {
@@ -48,7 +47,6 @@ function calculate() {
   };
   model.setResult(result);
   convertView.render(model.state.result);
-  symbolView.render(model.state.result);
 }
 
 const init = function () {

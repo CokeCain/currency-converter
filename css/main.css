@@ -69,7 +69,7 @@ body {
 }
 
 .flex input {
-  padding: 8px 0;
+  padding: 8px;
   color: rgb(20, 30, 55);
   width: 200px;
   font-weight: 500;
@@ -149,7 +149,7 @@ body {
 }
 
 .flex-me .input-symbol {
-  padding: 9px 0;
+  padding: 9px 0 9px 4px;
   margin-right: 4px;
 }
 

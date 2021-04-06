@@ -1,4 +1,5 @@
 import View from './view.js';
+import symbolView from './symbolView.js';
 
 class ConvertView extends View {
   _parentElement = document.querySelector('.result');
@@ -8,6 +9,7 @@ class ConvertView extends View {
   _activeFrom;
   _activeTo;
   _generateMarkup() {
+    symbolView.render(this._data.symbol);
     return `
     <p class="from">${this._data.amount} ${this._data.nameFrom} =</p>
     <p class="is-equal">${this._styleDifferently(this._data.calc)} ${this._data.nameTo}</p>
