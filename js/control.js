@@ -3,8 +3,8 @@ import fromView from './fromView.js';
 import toView from './toView.js';
 import convertView from './convertView.js';
 
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+/* import 'core-js/stable';
+import 'regenerator-runtime/runtime'; */
 
 const controller = async function () {
   try {
