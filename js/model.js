@@ -1,3 +1,5 @@
+import * as config from './config.js';
+
 export const state = {
   date: [],
   time: {},
@@ -9,8 +11,11 @@ export const state = {
 
 export const getCurrencyCodes = async function () {
   try {
-    const data = await fetch(`https://api.exchangeratesapi.io/v1/latest?access_key=8095a2f21ff578a2a3297f33c3687ca5`);
+    const data = await fetch(`https://api.exchangerate.host/latest`);
+    //getting CORS erros because exchangeratesapi is using http and netlify is forxing https
+    // const data = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${config.API_KEY}`);
     const json = await data.json();
+    console.log(Object.keys(json.rates).length);
     populateRates(json);
   } catch (err) {
     console.log(err);
