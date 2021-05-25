@@ -9,7 +9,7 @@ export const state = {
 
 export const getCurrencyCodes = async function () {
   try {
-    const data = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=8095a2f21ff578a2a3297f33c3687ca5`);
+    const data = await fetch(`https://api.exchangeratesapi.io/v1/latest?access_key=8095a2f21ff578a2a3297f33c3687ca5`);
     const json = await data.json();
     populateRates(json);
   } catch (err) {
