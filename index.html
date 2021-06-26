@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <script type="module" defer src="js/control.js"></script>
+    <title>CB Currency Converter</title>
+</head>
+
+<body>
+
+
+    <div class="stripe"></div>
+
+
+    <div class="main">
+        <div class="title-subtitle">
+            <p class="title">Currency Converter</p>
+            <p class="subtitle">Currency converter made with JavaScript using API, JSON, async/await, MVC</p>
+        </div>
+        <div class="flex-with-result">
+            <div class="flex">
+                <div class="row-1">
+                    <p class="label">Amount</p>
+                    <div class="flex-me">
+                        <p class="input-symbol"></p> <input type="text" class="input-amount" placeholder="Amount"
+                            value="1">
+                    </div>
+                </div>
+                <div class="row-2">
+                    <p class="label">From</p>
+                    <div class="dropdown" id="from-dropdown">
+                        <div class="button-from dropdown-button">Please Select</div> <span
+                            class="triangle">&#9660;</span>
+                        <ul class="currency-from dropdown-selection"></ul>
+                    </div>
+                </div>
+                <button class="switch">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+                <div class="row-3">
+                    <p class="label">To</p>
+                    <div class="dropdown" id="to-dropdown">
+                        <div class="button-to dropdown-button">Please Select</div> <span class="triangle">&#9660;</span>
+                        <ul class="currency-to dropdown-selection"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result"></div>
+            <!-- <div class="experiment">
+                <select name="select-from" class="select-from"></select>
+                <select name="select-to" class="select-to"></select>
+            </div> -->
+            <p class="sub-title">Favorites</p>
+            <div class="favorites">
+                <!-- <button class="favorite-button" data-change="EUR-HRK">EUR > HRK</button>
+                <button class="favorite-button" data-change="USD-HRK">USD > HRK</button>
+                <button class="favorite-button" data-change="GBP-HRK">GBP > HRK</button>
+                <button class="favorite-button" data-change="EUR-USD">EUR > USD</button> -->
+            </div>
+            <div class="desc">This app is using <a href="https://exchangerate.host">exchangerate.host</a> API and
+                Euro as a base for conversion. Made by <a href="mailto:cbabic.st@gmail.com">cbabic</a> in 2021.</div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+    integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+    crossorigin="anonymous"></script>
+
+</html>
