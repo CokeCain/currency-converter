@@ -8,10 +8,9 @@ class FromView extends View {
   }
 
   _markup(val) {
-    return `<li class="currency-list-item"><div class="currency-flag currency-flag-${val.code.toLowerCase()}"></div><span data-value="${val.code}">${
+    return `<li class="currency-list-item"><div class="currency-flag currency-flag-${val.code.toLowerCase()}"></div><span class="kokara" data-value="${
       val.code
-    }</span> - ${val.name}</li>`;
-    // return `<option value="${val.code}" style="background-image:url(${val.flag})><img style="width:30px;margin-right:10px;" src="${val.flag}">${val.code}</option>`;
+    }">${val.code}</span> - ${val.name}</li>`;
   }
 }
 

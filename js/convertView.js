@@ -39,9 +39,6 @@ class ConvertView extends View {
 
   addHandlerGetRates(handler) {
     document.querySelector('.flex').addEventListener('click', function (e) {
-      const clicked = e.target.closest('.currency-list-item');
-      if (!clicked) return;
-
       let numbers = /^[0-9]+$/;
       if (document.querySelector('.input-amount').value === '0') handler(0);
       if (document.querySelector('.input-amount').value.match(numbers)) {
@@ -78,13 +75,11 @@ class ConvertView extends View {
       });
       if (this._activeFrom !== undefined && this._activeTo !== undefined) {
         document.querySelectorAll('.currency-from .currency-list-item')[this._activeTo].classList.add('active');
-        document.querySelector('.button-from.dropdown-button').innerHTML = document.querySelectorAll('.currency-from .currency-list-item')[
-          this._activeTo
-        ].innerHTML;
+        document.querySelector('.button-from.dropdown-button').innerHTML =
+          document.querySelectorAll('.currency-from .currency-list-item')[this._activeTo].innerHTML;
         document.querySelectorAll('.currency-to .currency-list-item')[this._activeFrom].classList.add('active');
-        document.querySelector('.button-to.dropdown-button').innerHTML = document.querySelectorAll('.currency-to .currency-list-item')[
-          this._activeFrom
-        ].innerHTML;
+        document.querySelector('.button-to.dropdown-button').innerHTML =
+          document.querySelectorAll('.currency-to .currency-list-item')[this._activeFrom].innerHTML;
         handler();
       } else {
         console.log('undefined');
@@ -92,21 +87,37 @@ class ConvertView extends View {
       }
     });
   }
-}
 
-/* ['.currency-from', '.currency-to', '.input-amount'].forEach(cur => {
-      document.querySelector(cur).addEventListener('input', function (e) {
-        let numbers = /^[0-9]+$/;
-        if (document.querySelector('.input-amount').value === '0') handler(0);
-        if (document.querySelector('.input-amount').value.match(numbers)) {
-          handler(
-            document.querySelector('.input-amount').value,
-            document.querySelector('.currency-from').value,
-            document.querySelector('.currency-to').value
-          );
-        } else handler('letter');
+  addHandlerFavoriteClick(handler) {
+    document.querySelector('.favorites').addEventListener('click', function (e) {
+      const btn = e.target.closest('.favorite-button');
+      if (!btn) return;
+      const [from, to] = btn.dataset.change.split('-');
+      // console.log(document.getElementById('from-dropdown'));
+      const allFromValutes = [...document.querySelectorAll('.currency-from .currency-list-item span')];
+      const allToValutes = [...document.querySelectorAll('.currency-from .currency-list-item span')];
+
+      /* const findFrom=allFromValutes.findIndex(from);
+      console.log(findFrom); */
+
+      const fromDatasetArray = [];
+
+      allFromValutes.forEach(cur => {
+        fromDatasetArray.push(cur.dataset.value);
       });
-    }); */
+      const findFrom = fromDatasetArray.indexOf(from);
+      const findTo = fromDatasetArray.indexOf(to);
+
+      document.querySelectorAll('.currency-from .currency-list-item').forEach(cur => cur.classList.remove('active'));
+      document.querySelectorAll('.currency-to .currency-list-item').forEach(cur => cur.classList.remove('active'));
+      document.querySelectorAll('.currency-to .currency-list-item')[findTo].classList.add('active');
+      document.querySelectorAll('.currency-from .currency-list-item')[findFrom].classList.add('active');
+      document.querySelector('.button-from.dropdown-button').innerHTML = allFromValutes[findFrom].parentElement.innerHTML;
+      document.querySelector('.button-to.dropdown-button').innerHTML = allToValutes[findTo].parentElement.innerHTML;
+      handler();
+    });
+  }
+}
 
 ['from-dropdown', 'to-dropdown'].forEach(cur => document.getElementById(cur).addEventListener('click', showDropdown));
 
@@ -134,10 +145,10 @@ function showDropdown(e) {
   });
 }
 
-export default new ConvertView();
-
 //clicking outside
 document.onclick = function (e) {
   if (activeDropdown.ul === undefined) return;
   if (!e.target.classList.contains('dropdown-button')) activeDropdown.ul.classList.remove('active');
 };
+
+export default new ConvertView();

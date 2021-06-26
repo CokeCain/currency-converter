@@ -7,6 +7,12 @@ export const state = {
   rates: {},
   result: [],
   valuta: [],
+  favorites2: [
+    { from: 'EUR', to: 'HRK' },
+    { from: 'USD', to: 'HRK' },
+    { from: 'GBP', to: 'HRK' },
+  ],
+  favorites: [],
 };
 
 export const getCurrencyCodes = async function () {
@@ -15,7 +21,8 @@ export const getCurrencyCodes = async function () {
     //getting CORS erros because exchangeratesapi is using http and netlify is forxing https
     // const data = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${config.API_KEY}`);
     const json = await data.json();
-    console.log(Object.keys(json.rates).length);
+    //console.log(Object.keys(json.rates).length);
+    console.log(json);
     populateRates(json);
   } catch (err) {
     console.log(err);
@@ -40,6 +47,7 @@ function createCurrencyObject(data) {
       state.currency.push({
         code: cur,
         name: data[cur].name,
+        rate: state.rates[cur],
         symbol: data[cur].symbol_native,
         name_plural: data[cur].name_plural,
       });

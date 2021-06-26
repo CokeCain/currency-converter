@@ -2,6 +2,9 @@ import * as model from './model.js';
 import fromView from './fromView.js';
 import toView from './toView.js';
 import convertView from './convertView.js';
+import fromSelectView from './fromSelectView.js';
+import toSelectView from './toSelectView.js';
+import favoritesView from './favoritesView.js';
 
 /* import 'core-js/stable';
 import 'regenerator-runtime/runtime'; */
@@ -12,28 +15,33 @@ const controller = async function () {
     await model.getCurrencyNames();
     fromView.render(model.state.currency);
     toView.render(model.state.currency);
+    favoritesView.render(model.state.favorites);
+    /* fromSelectView.render(model.state.currency);
+    toSelectView.render(model.state.currency); */
   } catch (err) {
     console.log(err);
   }
 };
 
-let index1, index2;
-function calculate() {
+function calculate(st) {
+  let index1, index2;
+  if (st === 'letter') {
+    convertView.renderLettersError();
+    return;
+  }
+  if (st === 0) {
+    convertView.renderZeroError();
+    return;
+  }
   let amount = document.querySelector('.input-amount').value;
   let from = document.querySelector('.button-from span').dataset.value;
   let to = document.querySelector('.button-to span').dataset.value;
+
   model.state.currency.forEach((cur, i) => {
     if (cur.code.includes(from)) index1 = i;
     if (cur.code.includes(to)) index2 = i;
   });
-  if (amount === '0' || amount === 0) {
-    convertView.renderZeroError();
-    return;
-  }
-  if (amount === 'letter') {
-    convertView.renderLettersError();
-    return;
-  }
+
   let result = {
     amount: amount,
     from: from,
@@ -53,6 +61,7 @@ const init = function () {
   controller();
   convertView.addHandlerGetRates(calculate);
   convertView.addHandlerCallCalculate(calculate);
+  convertView.addHandlerFavoriteClick(calculate);
 };
 
 init();
