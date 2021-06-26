@@ -8,8 +8,9 @@ class FavoritesView extends View {
   }
 
   _markup(val) {
-    console.log(val);
-    return `<button class="favorite-button" data-change="${val.from}-${val.to}">${val.from} > ${val.to}</button>`;
+    return `<button class="favorite-button" data-change="${val.split('-')[0]}-${val.split('-')[1]}">${val.split('-')[0]} > ${
+      val.split('-')[1]
+    }</button>`;
   }
 }
 

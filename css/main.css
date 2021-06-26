@@ -375,6 +375,7 @@ body {
 }
 
 .favorite-button {
+  margin: 20px 0 0 0;
   padding: 30px;
   text-align: center;
   border-radius: 8px;
@@ -390,4 +391,23 @@ body {
 
 .favorite-button:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px 2px;
+}
+
+.result-holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.toggle-favorite {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }

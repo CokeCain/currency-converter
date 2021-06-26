@@ -5,6 +5,7 @@ import convertView from './convertView.js';
 import fromSelectView from './fromSelectView.js';
 import toSelectView from './toSelectView.js';
 import favoritesView from './favoritesView.js';
+import favoriteButtonView from './favoriteButtonView.js';
 
 /* import 'core-js/stable';
 import 'regenerator-runtime/runtime'; */
@@ -23,8 +24,13 @@ const controller = async function () {
   }
 };
 
+function checkIfFavorited(from, to) {
+  if (model.state.favorites.includes(`${from}-${to}`)) return true;
+  else return false;
+}
+
 function calculate(st) {
-  let index1, index2;
+  let index1, index2, favorited;
   if (st === 'letter') {
     convertView.renderLettersError();
     return;
@@ -52,16 +58,30 @@ function calculate(st) {
     symbol: model.state.currency[index1].symbol,
     nameFrom: model.state.currency[index1].name,
     nameTo: model.state.currency[index2].name_plural,
+    favorited: checkIfFavorited(from, to),
   };
+
   model.setResult(result);
   convertView.render(model.state.result);
+  favoriteButtonView.render(model.state.result.favorited);
 }
+
+const controlBookmarks = function () {
+  let from = document.querySelector('.button-from span').dataset.value;
+  let to = document.querySelector('.button-to span').dataset.value;
+  if (checkIfFavorited(from, to)) model.deleteBookmark(from, to);
+  else model.addBookmark(from, to);
+
+  favoritesView.render(model.state.favorites);
+  favoriteButtonView.render(model.state.result.favorited);
+};
 
 const init = function () {
   controller();
   convertView.addHandlerGetRates(calculate);
   convertView.addHandlerCallCalculate(calculate);
   convertView.addHandlerFavoriteClick(calculate);
+  favoriteButtonView.addHandlerFavoriteToggle(controlBookmarks);
 };
 
 init();

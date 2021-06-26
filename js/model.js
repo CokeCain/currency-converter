@@ -7,12 +7,7 @@ export const state = {
   rates: {},
   result: [],
   valuta: [],
-  favorites: [
-    { from: 'EUR', to: 'HRK' },
-    { from: 'USD', to: 'HRK' },
-    { from: 'GBP', to: 'HRK' },
-  ],
-  favorites2: [],
+  favorites: [],
 };
 
 export const getCurrencyCodes = async function () {
@@ -22,7 +17,6 @@ export const getCurrencyCodes = async function () {
     // const data = await fetch(`http://api.exchangeratesapi.io/v1/latest?access_key=${config.API_KEY}`);
     const json = await data.json();
     //console.log(Object.keys(json.rates).length);
-    console.log(json);
     populateRates(json);
   } catch (err) {
     console.log(err);
@@ -54,34 +48,26 @@ function createCurrencyObject(data) {
   });
 }
 
-/* export const getSymbolsName = function (handler) {
-  Promise.all(
-    Object.keys(state.rates).map(request => {
-      return fetch(`https://restcountries.eu/rest/v2/currency/${request}`)
-        .then(response => response.json())
-        .then(data => data);
-    })
-  )
-    .then(values => {
-      values.map(cur => addInfoToSymbol(cur[0]));
-      handler();
-    })
-    .catch(console.error.bind(console));
-}; 
-
-function addInfoToSymbol(data) {
-  let country = {
-    code: data.currencies[0].code,
-    symbol: data.currencies[0].symbol,
-    flag: data.flag,
-    name: data.currencies[0].name,
-  };
-  state.currency.push(country);
-}
-*/
-
 export const setResult = function (result) {
   state.result = result;
+};
+
+const persistFavorites = function () {
+  localStorage.setItem('favorites', JSON.stringify(state.favorites));
+};
+
+export const addBookmark = function (from, to) {
+  const set = `${from}-${to}`;
+  state.favorites.push(set);
+  state.result.favorited = true;
+  persistFavorites();
+};
+
+export const deleteBookmark = function (from, to) {
+  const index = state.favorites.findIndex(el => el === `${from}-${to}`);
+  state.favorites.splice(index, 1);
+  state.result.favorited = false;
+  persistFavorites();
 };
 
 function populateRates(data) {
@@ -98,3 +84,9 @@ function getCurrentTime() {
   let minute = date.getMinutes();
   return `${hour}:${minute}`;
 }
+
+const init = function () {
+  const storage = localStorage.getItem('favorites');
+  if (storage) state.favorites = JSON.parse(storage);
+};
+init();
