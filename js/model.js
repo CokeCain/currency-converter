@@ -7,12 +7,12 @@ export const state = {
   rates: {},
   result: [],
   valuta: [],
-  favorites2: [
+  favorites: [
     { from: 'EUR', to: 'HRK' },
     { from: 'USD', to: 'HRK' },
     { from: 'GBP', to: 'HRK' },
   ],
-  favorites: [],
+  favorites2: [],
 };
 
 export const getCurrencyCodes = async function () {
